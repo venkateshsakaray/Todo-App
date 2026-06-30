@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import TodoItem from "./TodoItem";
+import { toast } from "react-toastify";
 import './App.css';
 
 function Todolist(){
@@ -18,12 +19,14 @@ function addTodo(){
     title:value,
     completed:false
   }
+    toast.success("Todo Created")
   settodo([newTodo, ...todo])
   setvalue('')
 }
 
 function deletetodo(id){
  settodo(todo.filter(item=>item.id !== id))
+  toast.error("Todo Deleted")
   }
 
 function toogleTodo(id){
